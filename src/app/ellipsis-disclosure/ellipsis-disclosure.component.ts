@@ -17,7 +17,12 @@ import { Component, Input, OnInit } from "@angular/core";
           <mat-icon>{{ icon }}</mat-icon>
         </button>
       </div>
-      <div class="ellipsis-disclosure__body" [attr.aria-hidden]="!expanded">
+      <div
+        class="ellipsis-disclosure__body"
+        [attr.aria-hidden]="!expanded"
+        (pointerover)="onMouseover($event)"
+        (pointerout)="onMouseout($event)"
+      >
         <div #content class="ellipsis-disclosure__ellipsis-text">
           <ng-content></ng-content>
         </div>
@@ -35,9 +40,27 @@ export class EllipsisDisclosureComponent implements OnInit {
 
   constructor() {}
 
+  _show() {
+    this.expanded = true;
+    this.activeClass = "expanded";
+  }
+
+  _hide() {
+    this.expanded = false;
+    this.activeClass = "";
+  }
+
+  onMouseover(event: Event) {
+    this._show();
+  }
+
+  onMouseout(event: Event) {
+    this._hide();
+  }
+
   onClick(event: Event) {
-    this.expanded = !this.expanded;
-    this.activeClass = this.expanded ? "expanded" : "";
+    if (this.expanded) this._hide();
+    else this._show();
   }
 
   ngOnInit(): void {}

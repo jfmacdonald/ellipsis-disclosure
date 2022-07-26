@@ -8,6 +8,7 @@
   width: 15rem;
   min-width: 5rem;
   border: thin solid #ddd;
+  border-radius: 4px;
   padding: 0.25em;
   overflow: hidden;
   resize: horizontal;
@@ -28,8 +29,8 @@
   overflow: hidden;
   text-overflow: ellipsis;
   background: white;
-  padding: 0.125em;
-  border-radius: 2px;
+  padding: 0.25em;
+  border-radius: 4px;
 }
 
 .ellipsis-disclosure.expanded {

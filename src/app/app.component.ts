@@ -21,6 +21,8 @@ import { Component } from "@angular/core";
   styles: [
     `
       .container {
+        width: max-content;
+        min-width: 20rem;
         max-width: 40rem;
         margin: 1.5rem auto;
       }
